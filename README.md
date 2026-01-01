@@ -34,7 +34,7 @@ A modern, high-performance personal portfolio website built to showcase my Full 
 ---
 
 ## 📂 Project Structure
-
+```plaintext
 portfolio/
 ├── app/                  # Next.js App Router (Pages, Layouts, Global Styles)
 ├── components/           # React Components
@@ -43,7 +43,7 @@ portfolio/
 ├── data/                 # Centralized content layer (Text, Links, Config)
 ├── public/               # Static Assets (Images, Icons)
 └── utils/                # Helper functions (Tailwind class merger)
-
+```
 ---
 
 ## 🔐 Environment Variables
