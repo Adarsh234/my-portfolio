@@ -50,11 +50,11 @@ portfolio/
 
 To run this project locally with a working contact form, you will need to add the following environment variables to your `.env.local` file:
 
-
+```Bash
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-
+```
 ---
 
 ## 🏃‍♂️ Getting Started Locally
@@ -62,22 +62,21 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 Follow these steps to run the project on your local machine.
 
 ### 1. Clone the Repository
-
-
+```Bash
 git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git)
 cd YOUR-REPO-NAME
-
+```
 
 
 ### 2. Install Dependencies
-
+```Bash
 npm install
-
+```
 
 ### 3. Run the Development Server
-
+```Bash
 npm run dev
-
+```
 
 Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) with your browser to see the result.
 
