@@ -13,10 +13,6 @@ const Projects = () => {
           Featured <span className="text-indigo-500">Work</span>
         </h2>
 
-        {/* MAGIC HAPPENS HERE: 
-            1. 'group/projects' creates a scope for the hover effect.
-            2. 'hover:has-[:hover]:...' checks if a child is being hovered.
-        */}
         <div className="group/projects grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, idx) => (
             <motion.div
@@ -25,32 +21,24 @@ const Projects = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              // CSS LOGIC EXPLAINED:
-              // 1. group-hover/projects:blur-sm -> When mouse enters the GRID, blur THIS card.
-              // 2. group-hover/projects:scale-[0.98] -> Shrink slightly when grid is hovered.
-              // 3. hover:!blur-none -> BUT, if mouse is on THIS card, force remove blur.
-              // 4. hover:!scale-105 -> And scale THIS card up.
-              // 5. hover:!opacity-100 -> Keep full opacity.
-              // 6. z-0 hover:z-10 -> Bring hovered card to front.
-              className="
-                transition-all duration-500 ease-out
-                group-hover/projects:blur-sm group-hover/projects:scale-[0.95] group-hover/projects:opacity-50
-                hover:!blur-none hover:!scale-105 hover:!opacity-100 hover:z-10 shadow-lg
-              "
+              // FIXED: className flattened to single line to prevent hydration error
+              className="transition-all duration-500 ease-out group-hover/projects:blur-sm group-hover/projects:scale-[0.95] group-hover/projects:opacity-50 hover:!blur-none hover:!scale-105 hover:!opacity-100 hover:z-10 shadow-lg"
             >
               <Card className="h-full flex flex-col overflow-hidden group/card border-slate-200 dark:border-slate-800">
                 {/* Image Section */}
                 <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium">
-                    <Image src={project.image} fill alt="Project Image" />
-                    {/* Note: Added scaling to the image itself when card is hovered */}
-                    {/* <span className="transition-transform duration-500 group-hover/card:scale-110">
-                      {project.title} Preview
-                    </span> */}
+                    {/* Added object-cover and scale animation to the Image */}
+                    <Image
+                      src={project.image}
+                      fill
+                      alt={project.title}
+                      className="object-cover transition-transform duration-500 group-hover/card:scale-110"
+                    />
                   </div>
 
                   {/* Overlay Buttons */}
-                  <div className="absolute inset-0 bg-indigo-900/60 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center gap-4 backdrop-blur-[2px]">
+                  <div className="absolute inset-0 bg-indigo-900/60 opacity-0 group-hover/card:opacity-100 transition-opacity flex items-center justify-center gap-4 backdrop-blur-[2px] z-10">
                     <a
                       href={project.github}
                       target="_blank"
