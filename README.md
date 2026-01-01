@@ -1,0 +1,123 @@
+````markdown
+# 👨‍💻 Adarsh Sharma - Developer Portfolio
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat&logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat&logo=tailwind-css) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-purple?style=flat&logo=framer)
+
+A modern, high-performance personal portfolio website built to showcase my Full Stack Development and Cyber Security projects. Designed with a focus on responsiveness, interactivity, and clean UI/UX.
+
+**🔗 Live Demo:** [Add your deployed Vercel link here]
+
+---
+
+## 🚀 Key Features
+
+- **⚡ Next.js 14 App Router:** Leveraging the latest React framework features for server-side rendering and optimal performance.
+- **🎨 Tailwind CSS Styling:** Fully responsive design with a custom Slate & Indigo professional color palette.
+- **🌗 Dark/Light Mode:** Seamless theme switching with system preference detection (built with `next-themes`).
+- **✨ Interactive Animations:** Smooth scroll reveals, spotlight hover effects on project cards, and transitions using **Framer Motion**.
+- **🧩 Modular Architecture:** Clean code structure with reusable UI components and a centralized Data Layer for easy updates.
+- **📱 Fully Responsive:** Optimized for Mobile, Tablet, and Desktop screens.
+
+---
+
+## 🛠️ Tech Stack
+
+| Category      | Technologies                                              |
+| :------------ | :-------------------------------------------------------- |
+| **Framework** | [Next.js 14](https://nextjs.org/) (React)                 |
+| **Language**  | [TypeScript](https://www.typescriptlang.org/)             |
+| **Styling**   | [Tailwind CSS](https://tailwindcss.com/)                  |
+| **Icons**     | [React Icons](https://react-icons.github.io/react-icons/) |
+| **Animation** | [Framer Motion](https://www.framer.com/motion/)           |
+| **Utils**     | `clsx`, `tailwind-merge`                                  |
+
+---
+
+## 📂 Project Structure
+
+```plaintext
+portfolio/
+├── app/                  # Next.js App Router (Pages, Layouts, Global Styles)
+├── components/           # React Components
+│   ├── ui/               # Reusable primitives (Cards, Magic Buttons)
+│   └── ...               # Section-specific components (Hero, Projects, Skills, etc.)
+├── data/                 # Centralized content layer (Text, Links, Config)
+├── public/               # Static Assets (Images, Icons)
+└── utils/                # Helper functions (Tailwind class merger)
+```
+````
+
+---
+
+## 🏃‍♂️ Getting Started Locally
+
+Follow these steps to run the project on your local machine.
+
+### 1. Clone the Repository
+
+```bash
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+cd your-repo-name
+
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+
+```
+
+### 3. Run the Development Server
+
+```bash
+npm run dev
+
+```
+
+Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) with your browser to see the result.
+
+---
+
+## 🎨 Customization Guide
+
+### Updating Content
+
+You don't need to dig into complex component code to change the text.
+
+- Go to **`data/index.ts`**.
+- Update the `personalInfo`, `projects`, `skills`, or `services` arrays.
+- The site will automatically update to reflect your changes.
+
+### Adding Images
+
+- Place your images in the `public/projects/` folder (e.g., `public/projects/p1.png`).
+- Reference them in the data file as `/projects/p1.png`.
+
+---
+
+## 🚀 Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
+
+1. Push your code to a GitHub repository.
+2. Go to Vercel and import your project.
+3. Click **Deploy**.
+
+---
+
+## 📬 Contact
+
+**Adarsh Sharma**
+
+- 📧 Email: [adarsh0103sharma@gmail.com](mailto:adarsh0103sharma@gmail.com)
+- 💼 LinkedIn: [Your LinkedIn Profile](https://linkedin.com)
+- 🐙 GitHub: [Your GitHub Profile](https://github.com)
+
+---
+
+Developed with ❤️ using **Next.js** & **Tailwind CSS**.
+
+```
+
+```
