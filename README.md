@@ -1,4 +1,3 @@
-````markdown
 # 👨‍💻 Adarsh Sharma - Developer Portfolio
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat&logo=next.js) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat&logo=tailwind-css) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animation-purple?style=flat&logo=framer)
