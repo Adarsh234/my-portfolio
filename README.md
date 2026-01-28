@@ -121,3 +121,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 ---
 
 Developed with ❤️ using **Next.js** & **Tailwind CSS**.
+
+##💡 Author
+Developed with ❤️ by Adarsh Sharma 🔗 GitHub Repository
