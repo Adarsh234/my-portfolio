@@ -4,7 +4,7 @@
 
 A modern, high-performance personal portfolio website built to showcase my Full Stack Development and Cyber Security projects. Designed with a focus on responsiveness, interactivity, and clean UI/UX.
 
-**🔗 Live Demo:** [https://knowaboutadarsh.vercel.app/]
+<a href="https://knowaboutadarsh.vercel.app/">🔗 Live Demo:** </a>
 
 ---
 
