@@ -124,6 +124,6 @@ Developed with ❤️ using **Next.js** & **Tailwind CSS**.
 
 ---
 
-##💡 Author
+## 💡 Author
 
 Developed with ❤️ by Adarsh Sharma 🔗 GitHub Repository
