@@ -115,8 +115,8 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 **Adarsh Sharma**
 
 * 📧 Email: [adarsh0103sharma@gmail.com](mailto:adarsh0103sharma@gmail.com)
-* 💼 LinkedIn: [Your LinkedIn Profile URL](https://linkedin.com)
-* 🐙 GitHub: [Your GitHub Profile URL](https://github.com)
+* 💼 LinkedIn: [ADARSH SHARMA](https://www.linkedin.com/in/adarsh-sharma-b45106308/)
+* 🐙 GitHub: [Adarsh234](https://github.com/Adarsh234)
 
 ---
 
