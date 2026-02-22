@@ -4,7 +4,7 @@
 
 A modern, high-performance personal portfolio website built to showcase my Full Stack Development and Cyber Security projects. Designed with a focus on responsiveness, interactivity, and clean UI/UX.
 
-**🔗 Live Demo:** [Click here to view (Add your Vercel Link)]
+<a href="https://knowaboutadarsh.vercel.app/">🔗 Live Demo</a>
 
 ---
 
@@ -115,9 +115,17 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 **Adarsh Sharma**
 
 * 📧 Email: [adarsh0103sharma@gmail.com](mailto:adarsh0103sharma@gmail.com)
-* 💼 LinkedIn: [Your LinkedIn Profile URL](https://linkedin.com)
-* 🐙 GitHub: [Your GitHub Profile URL](https://github.com)
+* 💼 LinkedIn: [ADARSH SHARMA](https://www.linkedin.com/in/adarsh-sharma-b45106308/)
+* 🐙 GitHub: [Adarsh234](https://github.com/Adarsh234)
 
 ---
 
 Developed with ❤️ using **Next.js** & **Tailwind CSS**.
+
+---
+
+## 💡 Author
+
+<div align="center">
+  <sub>Built with ❤️ by <a href="https://github.com/Adarsh234">Adarsh234</a></sub>
+</div>
