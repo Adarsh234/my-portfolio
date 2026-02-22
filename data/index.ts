@@ -129,9 +129,9 @@ export const projects = [
     id: 2,
     title: 'Code Crackers',
     des: 'A collaborative coding platform designed for hackathons and team challenges.',
-    tech: ['Next.js', 'Tailwind', 'Firebase'],
-    link: 'https://code-crackers.netlify.app/',
-    github: 'https://github.com/Adarsh234/CodeCracker',
+    tech: ['Next.js', 'Tailwind', 'PostgreSQL'],
+    link: 'https://code-cracker-five.vercel.app/',
+    github: 'https://github.com/Adarsh234/code-cracker',
     image: '/projects/p2.png',
   },
   {
@@ -151,5 +151,14 @@ export const projects = [
     link: 'https://taste-buds-treat.vercel.app/',
     github: 'https://github.com/Adarsh234/TasteBudsTreat',
     image: '/projects/p4.png',
+  },
+  {
+    id: 5,
+    title: 'PIMS-Placement Management System',
+    des: 'A next-generation, centralized platform that streamlines campus recruitment by seamlessly connecting students, recruiters, and administrators.',
+    tech: ['Next.js', 'Tailwind', 'PostgreSql'],
+    link: 'https://placement-management-system-nine.vercel.app/',
+    github: 'https://github.com/Adarsh234/Placement_Management_System',
+    image: '/projects/p5.png',
   },
 ]
