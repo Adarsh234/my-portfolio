@@ -1,12 +1,13 @@
 'use client'
 import { personalInfo } from '@/data'
-import { motion } from 'framer-motion'
+// 1. IMPORT 'Variants' FROM FRAMER MOTION
+import { motion, Variants } from 'framer-motion'
 import { Card } from './ui/Card'
 import { FaLaptopCode, FaRocket, FaShieldAlt } from 'react-icons/fa'
 
 const About = () => {
-  // Framer Motion variants for staggered animations
-  const containerVariants = {
+  // 2. EXPLICITLY TYPE AS 'Variants'
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -16,12 +17,13 @@ const About = () => {
     },
   }
 
-  const itemVariants = {
+  // 3. EXPLICITLY TYPE AS 'Variants'
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      transition: { duration: 0.5, ease: 'easeOut' }, // Now TS knows this is a valid Framer curve!
     },
   }
 
