@@ -25,7 +25,7 @@ export const personalInfo = {
   phone: '+91 77039 29918',
   socials: {
     github: 'https://github.com/Adarsh234/',
-    linkedin: 'https://linkedin.com/',
+    linkedin: 'https://www.linkedin.com/in/adarsh-sharma-b45106308',
     twitter: 'https://x.com/SungJinWoo1159',
   },
 }

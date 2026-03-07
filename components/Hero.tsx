@@ -14,29 +14,53 @@ const Hero = () => {
   }
 
   return (
-    <section className="min-h-screen pt-20 flex items-center justify-center relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5 sm:px-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden z-0">
+      {/* 🔮 Ambient Background Glows (Creates depth behind the content) */}
+      <div className="absolute top-[20%] left-[10%] w-72 h-72 md:w-96 md:h-96 bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full blur-[100px] -z-10 pointer-events-none animate-pulse" />
+      <div className="absolute bottom-[10%] right-[10%] w-80 h-80 md:w-[30rem] md:h-[30rem] bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-5 sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
+        {/* TEXT CONTENT */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="order-2 md:order-1"
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="order-2 lg:order-1 flex flex-col items-center lg:items-start text-center lg:text-left"
         >
-          <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-indigo-500 uppercase bg-indigo-50 dark:bg-indigo-900/30 rounded-full">
+          {/* Glassmorphic Badge */}
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs sm:text-sm font-semibold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase bg-indigo-500/10 dark:bg-indigo-900/20 border border-indigo-500/20 dark:border-indigo-400/20 backdrop-blur-md rounded-full"
+          >
+            <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
             Available for Hire
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-slate-800 dark:text-slate-100 leading-tight mb-4">
-            Hi, I&apos;m{' '}
-            <span className="text-indigo-500">{personalInfo.name}</span>
+          </motion.span>
+
+          {/* Main Typography */}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-slate-800 dark:text-slate-100 leading-tight tracking-tight mb-4">
+            Hi, I&apos;m <br className="hidden lg:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
+              {personalInfo.name}
+            </span>
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300 mb-6">
+
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-600 dark:text-slate-300 mb-6 max-w-2xl">
             {personalInfo.role}
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-lg mb-8 max-w-lg leading-relaxed">
+
+          <p className="text-slate-500 dark:text-slate-400 text-base sm:text-lg mb-10 max-w-lg leading-relaxed">
             {personalInfo.tagline}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
+          {/* Action Buttons & Socials */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="flex flex-col sm:flex-row gap-5 items-center justify-center lg:justify-start w-full sm:w-auto"
+          >
             <MagicButton
               title="View Projects"
               icon={<FaLocationArrow />}
@@ -44,41 +68,58 @@ const Hero = () => {
               handleClick={handleScroll}
             />
 
-            <div className="flex gap-4">
+            {/* Glassmorphic Social Pill */}
+            <div className="flex items-center gap-2 p-2 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 rounded-full shadow-sm">
               <a
                 href={personalInfo.socials.github}
                 target="_blank"
-                className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
+                aria-label="GitHub"
               >
-                <FaGithub size={24} />
+                <FaGithub size={20} />
               </a>
+              <div className="w-[1px] h-5 bg-slate-300 dark:bg-slate-700"></div>
               <a
                 href={personalInfo.socials.linkedin}
                 target="_blank"
-                className="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
+                aria-label="LinkedIn"
               >
-                <FaLinkedin size={24} />
+                <FaLinkedin size={20} />
               </a>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
+        {/* IMAGE VISUALS */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="order-1 md:order-2 flex justify-center"
+          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+            type: 'spring',
+            stiffness: 100,
+          }}
+          className="order-1 lg:order-2 flex justify-center items-center w-full"
         >
-          <div className="relative w-80 h-80 md:w-[500px] md:h-[500px]">
-            <div className="absolute inset-0 bg-indigo-500/30 rounded-full blur-3xl animate-pulse scale-110" />
-            <div className="relative w-80 h-80 md:w-[30rem] md:h-[30rem] rounded-full overflow-hidden border-4 border-indigo-100 dark:border-indigo-900/50 shadow-2xl bg-slate-200 dark:bg-slate-800 flex items-center justify-center z-15">
+          {/* Responsive container size */}
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px]">
+            {/* Outer Rotating Glowing Ring */}
+            <div className="absolute inset-0 rounded-full border border-indigo-500/30 dark:border-indigo-400/20 shadow-[0_0_40px_-10px_rgba(99,102,241,0.4)] animate-[spin_15s_linear_infinite]" />
+            <div className="absolute inset-[-10px] rounded-full border border-dashed border-purple-500/20 dark:border-purple-400/20 animate-[spin_20s_linear_infinite_reverse]" />
+
+            {/* Inner Image Container */}
+            <div className="absolute inset-4 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 z-10 border-4 border-white dark:border-slate-900 shadow-2xl">
               <Image
                 src="/profile-pic.jpeg"
                 fill
-                // className="object"
-                alt="Profile Image"
+                priority // Important for LCP (Largest Contentful Paint)
+                className="object-cover transform hover:scale-105 transition-transform duration-700"
+                alt={`${personalInfo.name} Profile`}
               />
-              <span className="text-slate-400 font-medium">Profile Image</span>
             </div>
           </div>
         </motion.div>

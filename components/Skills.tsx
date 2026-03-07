@@ -5,30 +5,57 @@ import { Card } from './ui/Card'
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-900/30">
-      <div className="max-w-7xl mx-auto px-5 sm:px-10">
-        <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-slate-100 mb-16">
-          Technical <span className="text-indigo-500">Skills</span>
-        </h2>
+    <section id="skills" className="relative py-24 overflow-hidden z-0">
+      {/*  Ambient Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] max-w-4xl h-[400px] bg-blue-500/10 dark:bg-blue-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-10">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4">
+              Technical{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
+                Skills
+              </span>
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 opacity-80"></div>
+
+            <p className="mt-4 text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+              A comprehensive toolkit of languages, frameworks, and tools I use
+              to build scalable and secure applications.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Object.entries(skills).map(([category, items], idx) => (
             <motion.div
               key={category}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              className="flex"
             >
-              <Card className="p-6">
-                <h3 className="text-lg font-bold capitalize text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
-                  <span className="w-2 h-8 bg-indigo-500 rounded-full"></span>
+              <Card className="w-full p-6 sm:p-8 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border-slate-200/50 dark:border-slate-800/50 hover:border-indigo-500/50 dark:hover:border-purple-500/50 transition-colors duration-500 group">
+                {/* Category Title */}
+                <h3 className="text-xl font-bold capitalize text-slate-800 dark:text-slate-100 mb-6 flex items-center gap-3">
+                  <span className="w-1.5 h-6 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-full shadow-sm group-hover:scale-y-110 transition-transform duration-300"></span>
                   {category}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+
+                {/* Skill Pills */}
+                <div className="flex flex-wrap gap-2.5">
                   {items.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 rounded-md font-medium border border-slate-200 dark:border-slate-800"
+                      className="px-4 py-2 text-sm bg-white/60 dark:bg-slate-800/60 backdrop-blur-md text-slate-700 dark:text-slate-300 rounded-lg font-medium border border-slate-200/50 dark:border-slate-700/50 hover:bg-indigo-500 hover:text-white dark:hover:bg-indigo-500 dark:hover:text-white hover:border-indigo-500 transition-all duration-300 cursor-default shadow-sm hover:shadow-indigo-500/25 transform hover:-translate-y-0.5"
                     >
                       {skill}
                     </span>

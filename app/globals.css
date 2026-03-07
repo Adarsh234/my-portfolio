@@ -6,19 +6,62 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* 🎨 Custom Text Selection Color */
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.25);
+    /* Light Indigo */
+    color: #1e1b4b;
+    /* Deep Indigo Text */
+  }
+
+  .dark ::selection {
+    background-color: rgba(139, 92, 246, 0.35);
+    /* Soft Purple */
+    color: #e0e7ff;
+    /* Light Indigo Text */
+  }
 }
 
-/* Custom scrollbar */
+/* 🖱️ Premium Floating Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
+  height: 12px;
 }
+
+/* Track (Background) */
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #f8fafc;
+  /* slate-50 */
 }
+
+.dark ::-webkit-scrollbar-track {
+  background: #020617;
+  /* slate-950 */
+}
+
+/* Thumb (The moving part) */
 ::-webkit-scrollbar-thumb {
-  background: #6366f1; /* Indigo-500 */
-  border-radius: 4px;
+  background: #818cf8;
+  /* indigo-400 */
+  border-radius: 10px;
+  /* Adding a thick border that matches the track creates a sleek "floating" illusion */
+  border: 3px solid #f8fafc;
 }
-::-webkit-scrollbar-thumb:hover {
+
+.dark ::-webkit-scrollbar-thumb {
   background: #4f46e5;
+  /* indigo-600 */
+  border: 3px solid #020617;
+}
+
+/* Hover States */
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+  /* indigo-500 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+  /* indigo-400 */
 }
