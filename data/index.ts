@@ -121,7 +121,7 @@ export const projects = [
     title: 'iBlog Website',
     des: 'A responsive content management platform for bloggers to share stories.',
     tech: ['React', 'Node.js', 'MongoDB'],
-    link: 'https://iblog-website.netlify.app/',
+    link: 'https://iblog-website.vercel.app/',
     github: 'https://github.com/Adarsh234/IBlog',
     image: '/projects/p1.png',
   },
