@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './provider'
+// 1. IMPORT YOUR NEW SCROLL PROVIDER
+import SmoothScrolling from '@/components/ui/SmoothScrolling'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          {/* 2. WRAP CHILDREN IN THE SMOOTH SCROLLER */}
+          <SmoothScrolling>{children}</SmoothScrolling>
+        </Providers>
       </body>
     </html>
   )

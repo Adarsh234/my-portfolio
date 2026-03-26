@@ -3,26 +3,38 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  html, body {
+    /* Hide the default cursor everywhere so the custom one takes over */
+    cursor: none !important;
+    background-color: transparent;
+
+    /* ☀️ Light Mode Colors */
+    @apply bg-slate-50 text-slate-900;
+  }
+
+  /* 🌙 Dark Mode Colors (Targets the .dark class that Next-Themes applies to the html tag) */
+  .dark body {
+    @apply bg-slate-950 text-slate-50;
+  }
+
+  /* Force links, buttons, and inputs to hide their default pointer */
+  a, button, [role="button"], input, select, textarea {
+    cursor: none !important;
   }
 
   /* 🎨 Custom Text Selection Color */
   ::selection {
     background-color: rgba(99, 102, 241, 0.25);
-    /* Light Indigo */
     color: #1e1b4b;
-    /* Deep Indigo Text */
   }
 
   .dark ::selection {
     background-color: rgba(139, 92, 246, 0.35);
-    /* Soft Purple */
     color: #e0e7ff;
-    /* Light Indigo Text */
   }
 }
 
+/* ... keep your scrollbar code down here exactly as it was! ... */
 /* 🖱️ Premium Floating Scrollbar */
 ::-webkit-scrollbar {
   width: 12px;

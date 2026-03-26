@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaLocationArrow } from 'react-icons/fa'
 import MagicButton from './ui/MagicButton'
 import Image from 'next/image'
+import { MagneticWrapper } from './ui/MagneticWrapper'
 
 const Hero = () => {
   const handleScroll = () => {
@@ -15,10 +16,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden z-0">
-      {/* 🔮 Ambient Background Glows (Creates depth behind the content) */}
-      <div className="absolute top-[20%] left-[10%] w-72 h-72 md:w-96 md:h-96 bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full blur-[100px] -z-10 pointer-events-none animate-pulse" />
-      <div className="absolute bottom-[10%] right-[10%] w-80 h-80 md:w-[30rem] md:h-[30rem] bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-5 sm:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
         {/* TEXT CONTENT */}
         <motion.div
@@ -61,34 +58,42 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-5 items-center justify-center lg:justify-start w-full sm:w-auto"
           >
-            <MagicButton
-              title="View Projects"
-              icon={<FaLocationArrow />}
-              position="right"
-              handleClick={handleScroll}
-            />
+            <div className="cursor-none">
+              <MagicButton
+                title="View Projects"
+                icon={<FaLocationArrow />}
+                position="right"
+                handleClick={handleScroll}
+              />
+            </div>
 
             {/* Glassmorphic Social Pill */}
-            <div className="flex items-center gap-2 p-2 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 rounded-full shadow-sm">
-              <a
-                href={personalInfo.socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
-                aria-label="GitHub"
-              >
-                <FaGithub size={20} />
-              </a>
+            <div className="flex items-center gap-2 p-2 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 rounded-full shadow-sm cursor-none">
+              <MagneticWrapper>
+                <a
+                  href={personalInfo.socials.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 cursor-none"
+                  aria-label="GitHub"
+                >
+                  <FaGithub size={20} className="pointer-events-none" />
+                </a>
+              </MagneticWrapper>
+
               <div className="w-[1px] h-5 bg-slate-300 dark:bg-slate-700"></div>
-              <a
-                href={personalInfo.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin size={20} />
-              </a>
+
+              <MagneticWrapper>
+                <a
+                  href={personalInfo.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center bg-transparent hover:bg-white dark:hover:bg-slate-800 rounded-full text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 cursor-none"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin size={20} className="pointer-events-none" />
+                </a>
+              </MagneticWrapper>
             </div>
           </motion.div>
         </motion.div>
@@ -111,13 +116,13 @@ const Hero = () => {
             <div className="absolute inset-0 rounded-full border border-indigo-500/30 dark:border-indigo-400/20 shadow-[0_0_40px_-10px_rgba(99,102,241,0.4)] animate-[spin_15s_linear_infinite]" />
             <div className="absolute inset-[-10px] rounded-full border border-dashed border-purple-500/20 dark:border-purple-400/20 animate-[spin_20s_linear_infinite_reverse]" />
 
-            {/* Inner Image Container */}
-            <div className="absolute inset-4 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 z-10 border-4 border-white dark:border-slate-900 shadow-2xl">
+            {/* Inner Image Container (ParallaxWrapper removed) */}
+            <div className="absolute inset-4 z-10 w-auto h-auto rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-4 border-white dark:border-slate-900 shadow-2xl">
               <Image
                 src="/profile-pic.jpeg"
                 fill
-                priority // Important for LCP (Largest Contentful Paint)
-                className="object-cover transform hover:scale-105 transition-transform duration-700"
+                priority
+                className="object-cover transform hover:scale-105 transition-transform duration-700 cursor-none"
                 alt={`${personalInfo.name} Profile`}
               />
             </div>

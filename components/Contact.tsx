@@ -12,6 +12,8 @@ import MagicButton from './ui/MagicButton'
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
+// 1. IMPORT REVEALWORD HERE
+import { RevealWord } from './ui/RevealWord'
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null)
@@ -62,19 +64,27 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-5 sm:px-10">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4">
-              Get in{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
-                Touch
-              </span>
+          <div>
+            {/* 2. REVEALWORD FOR THE TITLE */}
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1 cursor-none">
+              <RevealWord delay={0.1}>Get</RevealWord>
+              <RevealWord delay={0.25}>in</RevealWord>
+              <RevealWord delay={0.4}>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
+                  Touch
+                </span>
+              </RevealWord>
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 opacity-80"></div>
-          </motion.div>
+
+            {/* 3. ANIMATED GRADIENT LINE */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.8, ease: 'easeInOut' }}
+              className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 opacity-80 origin-center"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -87,10 +97,10 @@ const Contact = () => {
             className="space-y-10"
           >
             <div>
-              <h3 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4 tracking-tight">
+              <h3 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4 tracking-tight cursor-none">
                 Let&apos;s talk about your next project
               </h3>
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed cursor-none">
                 I am currently available for freelance projects and open to
                 full-time opportunities. Reach out and let&apos;s build
                 something amazing together.
@@ -99,15 +109,18 @@ const Contact = () => {
 
             <div className="space-y-6">
               {contactDetails.map((item, index) => (
-                <div key={index} className="flex items-center gap-5 group">
-                  <div className="w-14 h-14 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 text-indigo-500 dark:text-indigo-400 flex items-center justify-center rounded-2xl group-hover:bg-gradient-to-br group-hover:from-indigo-500 group-hover:to-purple-600 group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm group-hover:shadow-indigo-500/25">
-                    <item.icon size={20} />
+                <div
+                  key={index}
+                  className="flex items-center gap-5 group cursor-none"
+                >
+                  <div className="w-14 h-14 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 text-indigo-500 dark:text-indigo-400 flex items-center justify-center rounded-2xl group-hover:bg-gradient-to-br group-hover:from-indigo-500 group-hover:to-purple-600 group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-sm group-hover:shadow-indigo-500/25 cursor-none">
+                    <item.icon size={20} className="pointer-events-none" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">
+                    <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 cursor-none">
                       {item.title}
                     </p>
-                    <p className="text-lg font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    <p className="text-lg font-bold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors cursor-none">
                       {item.detail}
                     </p>
                   </div>
@@ -128,17 +141,17 @@ const Contact = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 pointer-events-none"></div>
 
               {success ? (
-                <div className="relative z-10 flex flex-col items-center justify-center h-full text-center space-y-4 py-16">
+                <div className="relative z-10 flex flex-col items-center justify-center h-full text-center space-y-4 py-16 cursor-none">
                   <FaCheckCircle className="text-6xl text-emerald-500 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)] animate-[bounce_2s_infinite]" />
-                  <h3 className="text-3xl font-bold text-slate-800 dark:text-slate-100">
+                  <h3 className="text-3xl font-bold text-slate-800 dark:text-slate-100 cursor-none">
                     Message Sent!
                   </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-lg">
+                  <p className="text-slate-500 dark:text-slate-400 text-lg cursor-none">
                     Thanks for reaching out. I&apos;ll get back to you shortly.
                   </p>
                   <button
                     onClick={() => setSuccess(false)}
-                    className="mt-6 px-6 py-2 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-500 hover:text-white transition-all duration-300"
+                    className="mt-6 px-6 py-2 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-500 hover:text-white transition-all duration-300 cursor-none"
                   >
                     Send another message
                   </button>
@@ -147,13 +160,13 @@ const Contact = () => {
                 <form
                   ref={formRef}
                   onSubmit={sendEmail}
-                  className="relative z-10 space-y-6"
+                  className="relative z-10 space-y-6 cursor-none"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label
                         htmlFor="user_name"
-                        className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2"
+                        className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 cursor-none"
                       >
                         Name
                       </label>
@@ -161,14 +174,14 @@ const Contact = () => {
                         required
                         type="text"
                         name="user_name"
-                        className="w-full px-5 py-3.5 rounded-xl bg-white/60 dark:bg-slate-950/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-slate-800 dark:text-slate-100 transition-all shadow-sm"
+                        className="w-full px-5 py-3.5 rounded-xl bg-white/60 dark:bg-slate-950/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-slate-800 dark:text-slate-100 transition-all shadow-sm cursor-none"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
                       <label
                         htmlFor="user_email"
-                        className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2"
+                        className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 cursor-none"
                       >
                         Email
                       </label>
@@ -176,7 +189,7 @@ const Contact = () => {
                         required
                         type="email"
                         name="user_email"
-                        className="w-full px-5 py-3.5 rounded-xl bg-white/60 dark:bg-slate-950/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-slate-800 dark:text-slate-100 transition-all shadow-sm"
+                        className="w-full px-5 py-3.5 rounded-xl bg-white/60 dark:bg-slate-950/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-slate-800 dark:text-slate-100 transition-all shadow-sm cursor-none"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -185,7 +198,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2"
+                      className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 cursor-none"
                     >
                       Message
                     </label>
@@ -193,21 +206,23 @@ const Contact = () => {
                       required
                       name="message"
                       rows={5}
-                      className="w-full px-5 py-3.5 rounded-xl bg-white/60 dark:bg-slate-950/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-slate-800 dark:text-slate-100 transition-all shadow-sm resize-none"
+                      className="w-full px-5 py-3.5 rounded-xl bg-white/60 dark:bg-slate-950/60 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 text-slate-800 dark:text-slate-100 transition-all shadow-sm resize-none cursor-none"
                       placeholder="Tell me about your project..."
                     ></textarea>
                   </div>
 
                   {error && (
-                    <p className="text-red-500 text-sm font-medium">{error}</p>
+                    <p className="text-red-500 text-sm font-medium cursor-none">
+                      {error}
+                    </p>
                   )}
 
                   <MagicButton
                     title={loading ? 'Sending...' : 'Send Message'}
                     icon={loading ? null : <FaPaperPlane />}
                     position="right"
-                    otherClasses={`w-full mt-4 ${
-                      loading ? 'opacity-70 cursor-wait' : ''
+                    otherClasses={`w-full mt-4 cursor-none ${
+                      loading ? 'opacity-70 pointer-events-none' : ''
                     }`}
                   />
                 </form>
