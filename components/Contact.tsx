@@ -12,8 +12,8 @@ import MagicButton from './ui/MagicButton'
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { motion } from 'framer-motion'
-// 1. IMPORT REVEALWORD HERE
-import { RevealWord } from './ui/RevealWord'
+// 1. SWAPPED REVEALWORD FOR CYBERTEXT
+import { CyberText } from './ui/CyberText'
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null)
@@ -58,30 +58,29 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative py-24 overflow-hidden z-0">
-      {/* 🔮 Ambient Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-4xl h-[400px] bg-indigo-500/10 dark:bg-indigo-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      {/* 🧹 Removed static ambient glow so the 3D sparkles remain clean and visible */}
 
       <div className="max-w-7xl mx-auto px-5 sm:px-10">
         {/* Header Section */}
         <div className="text-center mb-16">
           <div>
-            {/* 2. REVEALWORD FOR THE TITLE */}
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1 cursor-none">
-              <RevealWord delay={0.1}>Get</RevealWord>
-              <RevealWord delay={0.25}>in</RevealWord>
-              <RevealWord delay={0.4}>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
-                  Touch
-                </span>
-              </RevealWord>
+            {/* 2. IMPLEMENTED CYBER TEXT WITH FONT-MONO */}
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1 cursor-none font-mono">
+              <CyberText text="Get" delay={0.1} />
+              <CyberText text="in" delay={0.3} />
+              <CyberText
+                text="Touch"
+                delay={0.5}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600"
+              />
             </h2>
 
-            {/* 3. ANIMATED GRADIENT LINE */}
+            {/* ANIMATED GRADIENT LINE */}
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.8, ease: 'easeInOut' }}
+              transition={{ delay: 0.6, duration: 0.8, ease: 'easeInOut' }}
               className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 opacity-80 origin-center"
             />
           </div>

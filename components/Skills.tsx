@@ -2,44 +2,44 @@
 import { skills } from '@/data'
 import { motion } from 'framer-motion'
 import { Card } from './ui/Card'
-// 1. IMPORT REVEALWORD HERE
-import { RevealWord } from './ui/RevealWord'
+// 1. IMPORT YOUR NEW CYBER TEXT
+import { CyberText } from './ui/CyberText'
 
 const Skills = () => {
   return (
     <section id="skills" className="relative py-24 overflow-hidden z-0">
-      {/* 🔮 Ambient Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] max-w-4xl h-[400px] bg-blue-500/10 dark:bg-blue-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      {/* 🧹 Removed static glow to let 3D background shine */}
 
       <div className="max-w-7xl mx-auto px-5 sm:px-10">
         {/* Header Section */}
         <div className="text-center mb-16">
           <div>
-            {/* 2. REVEALWORD FOR THE TITLE */}
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1 cursor-none">
-              <RevealWord delay={0.1}>Technical</RevealWord>
-              <RevealWord delay={0.25}>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
-                  Skills
-                </span>
-              </RevealWord>
+            {/* 2. IMPLEMENTED CYBER TEXT REVEAL ON HEADINGS */}
+            {/* Added font-mono to make the scrambling letters align perfectly */}
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1 cursor-none font-mono">
+              <CyberText text="Technical" delay={0.1} />
+              <CyberText
+                text="Skills"
+                delay={0.3}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600"
+              />
             </h2>
 
-            {/* 3. ANIMATED GRADIENT LINE */}
+            {/* ANIMATED GRADIENT LINE */}
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.8, ease: 'easeInOut' }}
+              transition={{ delay: 0.6, duration: 0.8, ease: 'easeInOut' }}
               className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 opacity-80 origin-center"
             />
 
-            {/* 4. ANIMATED PARAGRAPH */}
+            {/* ANIMATED PARAGRAPH */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.5 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
               className="mt-4 text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto cursor-none"
             >
               A comprehensive toolkit of languages, frameworks, and tools I use
@@ -60,10 +60,11 @@ const Skills = () => {
               className="flex cursor-none"
             >
               <Card className="w-full p-6 sm:p-8 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border-slate-200/50 dark:border-slate-800/50 hover:border-indigo-500/50 dark:hover:border-purple-500/50 transition-colors duration-500 group cursor-none">
-                {/* Category Title */}
-                <h3 className="text-xl font-bold capitalize text-slate-800 dark:text-slate-100 mb-6 flex items-center gap-3 cursor-none">
+                {/* 3. IMPLEMENTED CYBER TEXT ON CATEGORIES */}
+                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-6 flex items-center gap-3 cursor-none font-mono uppercase tracking-wider">
                   <span className="w-1.5 h-6 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-full shadow-sm group-hover:scale-y-110 transition-transform duration-300"></span>
-                  {category}
+                  {/* Delays based on index so they cascade smoothly */}
+                  <CyberText text={category} delay={0.3 + idx * 0.1} />
                 </h3>
 
                 {/* Skill Pills */}

@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 import { Card } from './ui/Card'
 import { FaCheckCircle } from 'react-icons/fa'
 import { TiltCard } from './ui/TiltCard'
-// 1. IMPORT REVEALWORD HERE
-import { RevealWord } from './ui/RevealWord'
+// 1. SWAPPED REVEALWORD FOR CYBERTEXT
+import { CyberText } from './ui/CyberText'
 
 const Services = () => {
   return (
@@ -13,24 +13,23 @@ const Services = () => {
       id="services"
       className="relative py-24 overflow-hidden z-0 cursor-none"
     >
-      {/* 🔮 Ambient Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-4xl h-[400px] bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      {/* 🧹 Removed static ambient background glow to let 3D background shine */}
 
       <div className="max-w-7xl mx-auto px-5 sm:px-10 cursor-none">
         {/* Header Section */}
         <div className="text-center mb-16">
           <div>
-            {/* 2. REVEALWORD FOR THE TITLE */}
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1 cursor-none">
-              <RevealWord delay={0.1}>My</RevealWord>
-              <RevealWord delay={0.25}>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
-                  Services
-                </span>
-              </RevealWord>
+            {/* 2. IMPLEMENTED CYBER TEXT WITH FONT-MONO FOR MAIN TITLE */}
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1 cursor-none font-mono">
+              <CyberText text="My" delay={0.1} />
+              <CyberText
+                text="Services"
+                delay={0.3}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600"
+              />
             </h2>
 
-            {/* 3. ANIMATED GRADIENT LINE */}
+            {/* ANIMATED GRADIENT LINE */}
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -39,7 +38,7 @@ const Services = () => {
               className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 opacity-80 origin-center"
             />
 
-            {/* 4. ANIMATED PARAGRAPH */}
+            {/* ANIMATED PARAGRAPH */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,8 +74,9 @@ const Services = () => {
                       <service.icon className="pointer-events-none" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover/card:text-indigo-500 dark:group-hover/card:text-indigo-400 transition-colors duration-300 cursor-none">
-                      {service.title}
+                    {/* 3. IMPLEMENTED CYBER TEXT ON SERVICE CARDS */}
+                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover/card:text-indigo-500 dark:group-hover/card:text-indigo-400 transition-colors duration-300 cursor-none font-mono">
+                      <CyberText text={service.title} delay={0.4 + idx * 0.1} />
                     </h3>
 
                     <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4 cursor-none">

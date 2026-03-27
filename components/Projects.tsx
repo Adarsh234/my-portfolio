@@ -5,31 +5,29 @@ import { motion } from 'framer-motion'
 import { Card } from './ui/Card'
 import Image from 'next/image'
 import { TiltCard } from './ui/TiltCard'
-// 1. IMPORT REVEALWORD HERE
-import { RevealWord } from './ui/RevealWord'
+// 1. SWAPPED REVEALWORD FOR CYBERTEXT
+import { CyberText } from './ui/CyberText'
 
 const Projects = () => {
   return (
     <section id="projects" className="relative py-24 overflow-hidden z-0">
-      {/* 🔮 Ambient Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-4xl h-[400px] bg-indigo-500/10 dark:bg-indigo-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      {/* 🧹 Removed static ambient glow to let the 3D background shine */}
 
       <div className="max-w-7xl mx-auto px-5 sm:px-10">
         {/* Header Section */}
         <div className="text-center mb-16">
-          {/* Note: Removed the generic fade-in motion.div from here so RevealWord can handle the text animation */}
           <div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1">
-              {/* 2. WRAP THE WORDS IN THE REVEAL COMPONENT */}
-              <RevealWord delay={0.1}>Featured</RevealWord>
-              <RevealWord delay={0.25}>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
-                  Work
-                </span>
-              </RevealWord>
+            {/* 2. IMPLEMENTED CYBER TEXT WITH FONT-MONO */}
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight mb-4 flex justify-center flex-wrap gap-x-3 gap-y-1 cursor-none font-mono">
+              <CyberText text="Featured" delay={0.1} />
+              <CyberText
+                text="Work"
+                delay={0.3}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600"
+              />
             </h2>
 
-            {/* 3. ADD ANIMATION TO THE LINE */}
+            {/* ANIMATED GRADIENT LINE */}
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -38,13 +36,13 @@ const Projects = () => {
               className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mx-auto mb-6 opacity-80 origin-center"
             />
 
-            {/* 4. ADD ANIMATION TO THE PARAGRAPH */}
+            {/* ANIMATED PARAGRAPH */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="mt-4 text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto"
+              className="mt-4 text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto cursor-none"
             >
               A selection of my recent projects, showcasing my expertise in
               building scalable applications and secure systems.
